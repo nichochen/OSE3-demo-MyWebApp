@@ -53,15 +53,20 @@ String dbUrl = "jdbc:mysql://" + db_ip + ":" +db_port + "/" + db_name;
 Database Connection String: <%=dbUrl %>
 </br>
 <%
-Class.forName("com.mysql.jdbc.Driver").newInstance();
-Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+//-----------------Database---------------------
+Context initCtx = new InitialContext();
+DataSource ds = (DataSource) initCtx.lookup("java:jboss/datasources/myDS");
+
+Connection conn = ds.getConnection();
 Statement stmt = conn.createStatement();
 ResultSet rs = stmt.executeQuery("select * from os");
 rs.next();
 String name = rs.getString("name");
 conn.close();
 %>
-Result: <%=name %>
+
+RHQ Name : <%= name %>
+
 
 </body>
 </html>
