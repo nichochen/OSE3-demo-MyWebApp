@@ -42,12 +42,12 @@ Visit Count: <%= i %> <br/>
 
 <%
 
-dbIp = System.getenv("MYSQL_55_CENTOS7_SERVICE_HOST");
-dbPort = System.getenv("MYSQL_55_CENTOS7_SERVICE_PORT");
-dbUser = "nico";
-dbPwd = "welcome1";
-dbName = "nico";
-dbUrl = "jdbc:mysql://" + db_ip + ":" +db_port + "/" + db_name;
+String dbIp = System.getenv("MYSQL_55_CENTOS7_SERVICE_HOST");
+String dbPort = System.getenv("MYSQL_55_CENTOS7_SERVICE_PORT");
+String dbUser = "nico";
+String dbPwd = "welcome1";
+String dbName = "nico";
+String dbUrl = "jdbc:mysql://" + db_ip + ":" +db_port + "/" + db_name;
 
 %>
 Database Connection String: <%=dbUrl %>
