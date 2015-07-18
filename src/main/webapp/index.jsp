@@ -39,31 +39,5 @@ Base Dir: <%= System.getProperty("jboss.server.base.dir") %><br/>
 Session Id: <%= session.getId() %><br/>
 Visit Count: <%= i %> <br/>
 <br/>
-
-<%
-
-String dbIp = System.getenv("MYSQL_55_CENTOS7_SERVICE_HOST");
-String dbPort = System.getenv("MYSQL_55_CENTOS7_SERVICE_PORT");
-String dbUrl = "jdbc:mysql://" + dbIp + ":" +dbPort + "/nico";
-
-%>
-Database Connection String: <%=dbUrl %>
-</br>
-<%
-//-----------------Database---------------------
-Context initCtx = new InitialContext();
-DataSource ds = (DataSource) initCtx.lookup("java:jboss/datasources/myDS");
-
-Connection conn = ds.getConnection();
-Statement stmt = conn.createStatement();
-ResultSet rs = stmt.executeQuery("select * from os");
-rs.next();
-String name = rs.getString("name");
-conn.close();
-%>
-
-RHQ Name : <%= name %>
-
-
 </body>
 </html>
