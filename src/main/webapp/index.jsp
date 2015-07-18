@@ -44,7 +44,7 @@ Visit Count: <%= i %> <br/>
 
 String dbIp = System.getenv("MYSQL_55_CENTOS7_SERVICE_HOST");
 String dbPort = System.getenv("MYSQL_55_CENTOS7_SERVICE_PORT");
-String dbUrl = "jdbc:mysql://" + dbIp + ":" +dbPort + "/" + dbName;
+String dbUrl = "jdbc:mysql://" + dbIp + ":" +dbPort + "/nico";
 
 %>
 Database Connection String: <%=dbUrl %>
