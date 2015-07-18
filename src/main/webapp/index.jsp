@@ -10,6 +10,7 @@
 
 Integer i = (Integer) session.getAttribute("count");
 
+
 if (i == null){
 	i=1;
 }else{
@@ -38,6 +39,29 @@ Base Dir: <%= System.getProperty("jboss.server.base.dir") %><br/>
 Session Id: <%= session.getId() %><br/>
 Visit Count: <%= i %> <br/>
 <br/>
+
+<%
+
+dbIp = System.getenv("MYSQL_55_CENTOS7_SERVICE_HOST");
+dbPort = System.getenv("MYSQL_55_CENTOS7_SERVICE_PORT");
+dbUser = "nico";
+dbPwd = "welcome1";
+dbName = "nico";
+dbUrl = "jdbc:mysql://" + db_ip + ":" +db_port + "/" + db_name;
+
+%>
+Database Connection String: <%=dbUrl %>
+</br>
+<%
+Class.forName("com.mysql.jdbc.Driver").newInstance();
+Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery("select * from os");
+rs.next();
+String name = rs.getString("name");
+conn.close();
+%>
+Result: <%=name %>
 
 </body>
 </html>
