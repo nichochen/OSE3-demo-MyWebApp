@@ -8,6 +8,36 @@
 	<name>MyWebApp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+<repositories>
+    <repository>
+     <id>xy-central</id>
+     <name>xycentral</name>
+     <url>http://192.168.172.1/maven2</url>
+     <releases>
+      <enabled>true</enabled>
+     </releases>
+     <snapshots>
+      <enabled>false</enabled>
+     </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+  <pluginRepository>
+   <id>xy-central</id>
+   <name>xycentral</name>
+   <url>http://192.168.172.1/maven2</url>
+   <layout>default</layout>
+   <snapshots>
+    <enabled>false</enabled>
+   </snapshots>
+   <releases>
+    <updatePolicy>never</updatePolicy>
+   </releases>
+  </pluginRepository>
+ </pluginRepositories>
+
+	  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -19,15 +49,5 @@
 	<build>
 		<finalName>MyWebApp</finalName>
 	</build>
-	<repositories>
-		<repository>
-			<id>repo</id>
-			<name>repo</name>
-			<releases>
-				<enabled>true</enabled>
-				<checksumPolicy>ignore</checksumPolicy>
-			</releases>
-			<url>http://192.168.172.1/</url>
-		</repository>
-	</repositories>
+	
 </project>
